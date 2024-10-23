@@ -9,130 +9,75 @@
         
     </head>
     <body>
+      
             <div class="container-fluid p-5 bg-primary text-white text-center">
                 <h1>Product List</h1>  
               </div>
                 <div class="container mt-5">
                 <div class="row">
                   <div class="col-sm-4">
-                    <img src="https://brain-images-ssl.cdn.dixons.com/5/1/10222415/u_10222415.jpg" width="230" height="50%">
+                    <img src="https://brain-images-ssl.cdn.dixons.com/5/1/10222415/u_10222415.jpg" width="300" height="300">
                     <h3 class="Laptop" col-title></h3>
+                    <h3>Laptop</h3>
                     <p class="col-text">Price: 1500$</p>
-                    <p class="col-text">Stock: 5 </p>
-                    <button class="btn btn-primary" onclick="addToCart">Add to Cart</button>
+                    <p id="stock1">In Stock: 5</p>
+                    <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
                   </div>
                  <div class="col-sm-4">
-                    <img src="https://www.toys-shop.gr/209909-thickbox_default/wireless-headphones-for-children-peppa-pig-music-dance-bluetooth.jpg" width="200" height="50%">
+                    <img src="https://www.toys-shop.gr/209909-thickbox_default/wireless-headphones-for-children-peppa-pig-music-dance-bluetooth.jpg"width="300" height="300">
                     <h3 class="Headphones" col-title></h3>
+                    <h3>Headphones</h3>
                     <p class="col-text">Price: 100$</p>
-                    <p class="col-text">Stock: 10 </p>
-                    <button class="btn btn-primary" onclick="addToCart">Add to Cart</button>
+                    <p id="stock2">In Stock: 10</p>
+                    <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
                   </div>
                   <div class="col-sm-4">
-                    <img src="https://i5.walmartimages.com/seo/FC-Compact-Keyboard-DC-5V-61-Keys-60-Gaming-Keyboard-Ergonomic-RGB-Backlight-Plug-and-Play-for-Travel-Typer-Pink-White-21389_9699e9e5-1e6a-43e9-bc6e-d7ea9dcf1c6b.d45dc8de0d992a67dac984c72e283494.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF">
+                    <img src="https://i5.walmartimages.com/seo/FC-Compact-Keyboard-DC-5V-61-Keys-60-Gaming-Keyboard-Ergonomic-RGB-Backlight-Plug-and-Play-for-Travel-Typer-Pink-White-21389_9699e9e5-1e6a-43e9-bc6e-d7ea9dcf1c6b.d45dc8de0d992a67dac984c72e283494.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF"width="300" height="300">
                     <h3 class="Keyboard" col-title></h3>
+                    <h3>Keyboard</h3>
                     <p class="col-text">Price: 50$</p>
-                    <p class="col-text">Stock: 20 </p>
-                    <button class="btn btn-primary" onclick="addToCart">Add to Cart</button>
+                    <p id="stock3">In Stock: 20</p>
+                    <button class="btn btn-primary" onclick="addToCart(3)">Add to Cart</button>
                   </div>
                 </div>
               </div>
+
+             
+
               <footer class="text-center" style="padding: 20px; margin-top: 40px; background-color: #1389ff; color: white;">
                 <p>Contact Us | Follow Us on Social Media</p>
                 </footer>
-        <style>
-            body {
-                font-family: 'Arial', cursive, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #ffffff;
-                color: #2b2b2b;
-            }
-    
-            header {
-                background-color: navy;
-                color: #fff;
-                text-align: center;
-                padding: 2em 0;
-            }
-    
-            h1, h3 {
-                margin: 0;
-                color: rgb(14, 14, 15);
 
 
-            }
 
-            h1 {
-                margin: 0;
-                color: white;
-                
-            }
-
-    
-            section {
-                padding: 2em;
-                text-align: center;
-            }
-    
-            .container-mt-5{
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-            }
-    
-            .col-sm-4 {
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                margin: 1em;
-                overflow: hidden;
-                width: 300px;
-                transition: transform 0.3s ease;
-            }
-    
-            .col-sm-4 img {
-                max-width: 100%;
-                height: auto;
-            }
-    
-            .col-sm-4:hover {
-                transform: scale(1.05);
-            }
-    
-        </style>
-
-
-      <script>
-
+<script>
 const products = [
-  { id: 1, name: "Laptop", price: 1500, stock: 5 },
-  { id: 2, name: "Headphones", price: 100, stock: 10 },
-  { id: 3, name: "Keyboard", price: 50, stock: 20 },
+{ id: 1, name: "Laptop", price: 1500, stock: 5 },
+{ id: 2, name: "Headphones", price: 100, stock: 10 },
+{ id: 3, name: "Keyboard", price: 50, stock: 20 },
 ];
 
 function addToCart(productId) {
-  const product = products.find((p) => p.id === productId);
-  if (product && product.stock > 0) {
+const product = products.find((p) => p.id === productId);
+if (product && product.stock > 0) {
     product.stock--;
-    displayNotification(`${product.name} added to cart successfully.`);
-    document.getElementById(
-      stock${productId}
-    ).textContent = `In Stock:` `${product.stock}`;
-  } else {
-    alert(Sorry, `${product ? product.name : " "}` `is out of stock.`);
-  }
+    alert(`${product.name} added to cart successfully.`);
+    document.getElementById(`stock${productId}`).textContent = `In Stock: ${product.stock}`;
+} else {
+    alert(`Sorry, ${product ? product.name : "this product"} is out of stock.`);
+   
+}
 }
 
 function displayNotification(message) {
-  const notification = document.getElementById("notification");
-  notification.textContent = message;
-  notification.classList.remove("d-none");
-  setTimeout(() => {
+const notification = document.getElementById("notification");
+notification.textContent = message;
+notification.classList.remove("d-none");
+setTimeout(() => {
     notification.classList.add("d-none");
-  }, 3000);
+}, 3000);
 }
-      </script>
+</script>
         
 
     </body>
